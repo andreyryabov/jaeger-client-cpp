@@ -109,7 +109,7 @@ if(JAEGERTRACING_WITH_YAML_CPP)
   list(APPEND package_deps yaml-cpp)
 endif()
 
-include(CTest)
+
 if(BUILD_TESTING)
   hunter_add_package(GTest)
   find_package(GTest ${hunter_config} REQUIRED)
