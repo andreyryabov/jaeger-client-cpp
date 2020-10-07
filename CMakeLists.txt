@@ -88,13 +88,13 @@ find_package(nlohmann_json CONFIG REQUIRED)
 list(APPEND LIBS nlohmann_json::nlohmann_json)
 list(APPEND package_deps nlohmann_json)
 
-option(JAEGERTRACING_BUILD_EXAMPLES "Build examples" ON)
+option(JAEGERTRACING_BUILD_EXAMPLES "Build examples" OFF)
 
-option(JAEGERTRACING_COVERAGE "Build with coverage" $ENV{COVERAGE})
-option(JAEGERTRACING_BUILD_CROSSDOCK "Build crossdock" $ENV{CROSSDOCK})
+option(JAEGERTRACING_COVERAGE "Build with coverage" OFF)
+option(JAEGERTRACING_BUILD_CROSSDOCK "Build crossdock" OFF)
 cmake_dependent_option(
-  JAEGERTRACING_WITH_YAML_CPP "Use yaml-cpp to parse config files" ON
-  "NOT JAEGERTRACING_BUILD_CROSSDOCK" ON)
+  JAEGERTRACING_WITH_YAML_CPP "Use yaml-cpp to parse config files" OFF
+  "NOT JAEGERTRACING_BUILD_CROSSDOCK" OFF)
 
 if(JAEGERTRACING_WITH_YAML_CPP)
   hunter_add_package(yaml-cpp)
